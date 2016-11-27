@@ -58,7 +58,7 @@ RUN useradd -G www-data -d ${OTRS_HOME} otrs \
 	&& cp /opt/otrs/var/cron/otrs_daemon.dist /opt/otrs/var/cron/otrs_daemon \
 	&& /opt/otrs/bin/Cron.sh start otrs \
 	
-	&& ${OTRS_HOME}/bin/otrs.SetPermissions.pl --web-group=otrs \
+	&& ${OTRS_HOME}/bin/otrs.SetPermissions.pl --web-group=www-data \
 	&& chown www-data:www-data ${ENTRYPOINT_FILE} \
 	&& chmod 554 ${ENTRYPOINT_FILE} \
 	&& ln -s ${ENTRYPOINT_FILE} /entrypoint.sh
