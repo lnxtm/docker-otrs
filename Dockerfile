@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-ENV OTRS_VERSION 3.3.6
+ENV OTRS_VERSION 5.0.14
 ENV OTRS_HOME /opt/otrs
 
 RUN apt-get update \
