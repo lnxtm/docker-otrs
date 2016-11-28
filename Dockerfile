@@ -54,11 +54,6 @@ COPY ports.conf /etc/apache2/
 RUN cp /opt/otrs/Kernel/Config.pm.dist /opt/otrs/Kernel/Config.pm
 RUN useradd -G www-data -d ${OTRS_HOME} otrs \
 
-	&& cp /opt/otrs/var/cron/aaa_base.dist /opt/otrs/var/cron/aaa_base \
-	&& cp /opt/otrs/var/cron/otrs_daemon.dist /opt/otrs/var/cron/otrs_daemon \
-	&& /opt/otrs/bin/Cron.sh start otrs \
-	
-	&& ${OTRS_HOME}/bin/otrs.SetPermissions.pl --web-group=www-data \
 	&& chown www-data:www-data ${ENTRYPOINT_FILE} \
 	&& chmod 554 ${ENTRYPOINT_FILE} \
 	&& ln -s ${ENTRYPOINT_FILE} /entrypoint.sh
